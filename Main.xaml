@@ -28,11 +28,16 @@
 
 		<StackPanel HorizontalAlignment="Center">
 
-            <DataGrid x:Name="trainGrid" AutoGenerateColumns="False" Margin="0,0,0,0"
+            <DataGrid x:Name="trainGrid0" AutoGenerateColumns="False" Margin="0,0,0,0"
                 GridLinesVisibility="All" HorizontalGridLinesBrush="#FFD4D4D4"  
                 VerticalGridLinesBrush="#FFD4D4D4"  CanUserAddRows="False">
     
             </DataGrid>
+
+
+            <Grid x:Name="trainGrid" Background="White">
+    
+            </Grid>
 
 		</StackPanel>		
 
