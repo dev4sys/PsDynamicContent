@@ -197,18 +197,20 @@ Function New-Progressbar{
 Function New-Rectangle{ 
     [CmdletBinding()]
        param(
-           [Parameter(Position=0,Mandatory=$true)]
+           [Parameter(Position=0)]
            [string] $Margin,
            [Parameter(Position=1,Mandatory=$true)]
-           [string] $Height,
-           [Parameter(Position=2,Mandatory=$true)]
-           [System.Windows.Controls.Canvas] $VisualBrush)
+           [string] $Size,
+           [Parameter(Position=2)]
+           [System.Windows.Media.VisualBrush] $VisualBrush
+        )
            
 
-        $Fill = New-Object System.Windows.Media.VisualBrush
-        $Rectangle = New-Object System.Windows.Media.RectangleGeometry
-        $Rectangle.Height = $Height
-        $Rectangle.Fill = $Fill
+        $Rectangle = New-Object System.Windows.Shapes.Rectangle
+		$Rectangle.Margin = $Margin
+		$Rectangle.Width  = $Size.Split(",")[0]
+        $Rectangle.Height = $Size.Split(",")[1]
+        if($VisualBrush){$Rectangle.Fill = $VisualBrush}
        
 
        return $Rectangle

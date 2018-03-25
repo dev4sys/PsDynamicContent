@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+		Height="600"
         Title="TRAIN">
 
     <Window.Resources>
@@ -24,7 +25,12 @@
 
 		<StackPanel HorizontalAlignment="Center">
 
-
+			<StackPanel Orientation="Horizontal" Margin="0,5,0,10">
+				<Label Content="Train station:" Width="100"/>
+				<TextBox x:Name="StationInput" Width="300" IsEnabled="True"/>
+				<Button x:Name="StationButon" Margin="10,0,0,0" Content="Search" Width="100"/>
+			</StackPanel>
+			
  <!-- DATAGRID CONTENT -->       
             <DataGrid x:Name="datagridTrain" AutoGenerateColumns="False" Margin="0,20,0,20"
                 GridLinesVisibility="All" HorizontalGridLinesBrush="#FFD4D4D4"  
@@ -45,7 +51,7 @@
             <ScrollViewer  Height="250" Background="CornFlowerBlue">
                 <StackPanel x:Name="trainGrid" Width="400" Orientation="vertical"  >
 
-					<StackPanel  Height="50"  Margin="0,4,0,4" HorizontalAlignment="Stretch"  Background="#5B965B" Orientation="Horizontal">
+					<StackPanel  Height="50"  Margin="0,4,0,4" HorizontalAlignment="Stretch"  Background="#AA7243" Orientation="Horizontal">
 						<Rectangle Margin="20,0,5,0" Height="32" Width="28">
 							<Rectangle.Fill>
 								<VisualBrush Visual="{StaticResource appbar_train}" />
