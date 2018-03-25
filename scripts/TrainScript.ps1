@@ -1,6 +1,6 @@
 
 
-$Script:apikey = 'your api key here '
+$Script:apikey = 'your api key here'
 
 Function Get-NextTrain
 {

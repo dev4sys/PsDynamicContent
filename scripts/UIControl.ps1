@@ -13,42 +13,45 @@
 
 
 # ======================== Grid ======================================= 
-Function Create-Grid{ 
+Function New-Grid{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $GridName,
+        [string] $Name,
         [Parameter(Position=1,Mandatory=$true)]
-        [string] $GridMargin)
+        [string] $Margin)
  
     $Grid = New-Object System.Windows.Controls.Grid
-    $Grid.Name        = $GridName 
-    $Grid.Margin      = $GridMargin
+    $Grid.Name        = $Name 
+    $Grid.Margin      = $Margin
     
     return $Grid
 }
 
 # =================== StackPanel ======================================== 
-Function Create-StackPanel{ 
+Function New-StackPanel{ 
  [CmdletBinding()]
     param(
-        [Parameter(Position=0,Mandatory=$true)]
-        [string] $StackPanelName,
-        [Parameter(Position=1,Mandatory=$true)]
-        [string] $StackPanelMarign,
-        [Parameter(Position=2,Mandatory=$true)]
-        [string] $StackPanelOrientation,
+        [Parameter(Position=0)]
+        [string] $Name,
+        [Parameter(Position=1)]
+        [string] $Margin,
+        [Parameter(Position=2)]
+        [string] $Orientation,
         [Parameter(Position=3)]
-        [string] $StackPanelAlignment)
+        [string] $HorizontalAlignment,
+        [Parameter(Position=4)]
+        [string] $Background
+        )
 
  
     $StackPanel = New-Object System.Windows.Controls.StackPanel
-    $StackPanel.Name        = $StackPanelName 
-    $StackPanel.Orientation = $StackPanelOrientation
-    $StackPanel.Margin      = $StackPanelMarign
+    if($Name){$StackPanel.Name        = $Name} 
+    $StackPanel.Orientation = $Orientation
+    $StackPanel.Margin      = $Margin
     $StackPanel.VerticalAlignment   = "Stretch"
-    if($StackPanelMarign -eq "") {$StackPanel.HorizontalAlignment = "Center"}
-    else{$StackPanel.HorizontalAlignment = $StackPanelAlignment} 
+    if($Background){$StackPanel.Background   = $Background}
+    if($HorizontalAlignment){$StackPanel.HorizontalAlignment = $HorizontalAlignment} 
     
     
  
@@ -56,58 +59,80 @@ Function Create-StackPanel{
 }
 
 # =================== RadioButton ======================================
-Function Create-RadioButton{ 
+Function New-RadioButton{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $RadioButtonName,
+        [string] $Name,
         [Parameter(Position=1,Mandatory=$true)]
-        [string] $RadioButtonMargin,
+        [string] $Margin,
         [Parameter(Position=2,Mandatory=$true)]
-        [string] $RadioGroupName)
+        [string] $GroupName)
  
     $RadioButton = New-Object System.Windows.Controls.RadioButton
-    $RadioButton.Name        = $RadioButtonName 
-    $RadioButton.Margin      = $RadioButtonMargin
-    $RadioButton.GroupName   = $RadioGroupName
-    $RadioButton.FontSize="16"
+    $RadioButton.Name        = $Name 
+    $RadioButton.Margin      = $Margin
+    $RadioButton.GroupName   = $GroupName
     
     return $RadioButton
 }
 
 # ======================== Label =======================================
-Function Create-Label{ 
+Function New-Label{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $LabelName,
+        [string] $Name,
         [Parameter(Position=1,Mandatory=$true)]
-        [string] $LabelMargin)
+        [string] $Margin,
+        [Parameter(Position=2)]
+        [string] $FontSize
+        )
  
     $Label = New-Object System.Windows.Controls.Label
-    $Label.Name        = $LabelName 
-    $Label.Margin      = $LabelMargin
-    $Label.FontSize="16"
+    $Label.Name        = $Name 
+    $Label.Margin      = $Margin
+    if ($FontSize){$Label.FontSize=$FontSize}
     
     return $Label
 }
 
+# ======================== TextBlock =======================================
+Function New-TextBlock{ 
+    [CmdletBinding()]
+       param(
+           [Parameter(Position=0)]
+           [string] $Margin,
+           [Parameter(Position=1)]
+           [string] $FontSize,
+           [Parameter(Position=2)]
+           [string] $Foreground
+           )
+    
+       $Label = New-Object System.Windows.Controls.TextBlock
+       $Label.Margin  = $Margin
+       if($Foreground){$Label.Foreground = $Foreground} 
+       if ($FontSize){$Label.FontSize=$FontSize}
+       
+       return $Label
+   }
+
 # ======================== Image =======================================
-Function Create-Image{ 
+Function New-Image{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $ImageName,
+        [string] $Name,
         [Parameter(Position=1,Mandatory=$true)]
-        [string] $ImageSize,
+        [string] $Size,
         [Parameter(Position=2)]
-        [string] $ImageMargin)
+        [string] $Margin)
  
     $Image = New-Object System.Windows.Controls.Image
-    $Image.Name        = $RadioButtonName
-    if($ImageMargin -ne "") {$Image.Margin  = $ImageMargin }
-    $Image.Width =$ImageSize.Split(",")[0]
-    $Image.Height=$ImageSize.Split(",")[1]
+    $Image.Name        = $Name
+    if($Margin -ne "") {$Image.Margin  = $Margin }
+    $Image.Width =$Size.Split(",")[0]
+    $Image.Height=$Size.Split(",")[1]
     $Image.HorizontalAlignment="Left"
     $Image.VerticalAlignment="Top" 
     
@@ -115,60 +140,78 @@ Function Create-Image{
 }
 
 # ======================== Border =======================================
-Function Create-Border{ 
+Function New-Border{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $BorderName,
-        [Parameter(Position=1,Mandatory=$true)]
-        [string] $BorderColor)
+        [string] $Color)
  
     $Border = New-Object System.Windows.Controls.Border
-    $Border.Name            = $BorderName 
-    $Border.BorderBrush     = $BorderColor
+    $Border.BorderBrush     = $Color
     $Border.BorderThickness = 2
     return $Border
 }
 
 # ======================== Button =======================================
-Function Create-Button{ 
+Function New-Button{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $ButtonName,
+        [string] $Name,
         [Parameter(Position=1,Mandatory=$true)]
-        [string] $ButtonMargin,
+        [string] $Margin,
         [Parameter(Position=2,Mandatory=$true)]
-        [string] $ButtonContent,
+        [string] $Content,
         [Parameter(Position=3,Mandatory=$true)]
-        [string] $ButtonTextColor)
+        [string] $Foreground)
  
     $Button = New-Object System.Windows.Controls.Button
-    $Button.Name        = $ButtonName 
-    $Button.Content     = $ButtonContent
-    $Button.Margin      = $ButtonMargin
-    $Button.Foreground  = $ButtonTextColor
+    $Button.Name        = $Name 
+    $Button.Content     = $Content
+    $Button.Margin      = $Margin
+    $Button.Foreground  = $Foreground
 
     return $Button
 }
 
 # ======================== Progressbar =======================================
-Function Create-Progressbar{ 
+Function New-Progressbar{ 
  [CmdletBinding()]
     param(
         [Parameter(Position=0,Mandatory=$true)]
-        [string] $ProgressbarName,
+        [string] $Name,
         [Parameter(Position=1,Mandatory=$true)]
-        [string] $ProgressbarMargin,
+        [string] $Margin,
         [Parameter(Position=2,Mandatory=$true)]
-        [string] $ProgressbarHeight)
+        [string] $Height)
  
     $Progressbar = New-Object System.Windows.Controls.Progressbar
-    $Progressbar.Name       = $ProgressbarName 
-    $Progressbar.Margin     = $ProgressbarMargin
-    $Progressbar.Height     = $ProgressbarHeight
+    $Progressbar.Name       = $Name 
+    $Progressbar.Margin     = $Margin
+    $Progressbar.Height     = $Height
 
     return $Progressbar
 }
 
+# ======================== Rectangle =======================================
+Function New-Rectangle{ 
+    [CmdletBinding()]
+       param(
+           [Parameter(Position=0,Mandatory=$true)]
+           [string] $Margin,
+           [Parameter(Position=1,Mandatory=$true)]
+           [string] $Height,
+           [Parameter(Position=2,Mandatory=$true)]
+           [System.Windows.Controls.Canvas] $VisualBrush)
+           
+
+        $Fill = New-Object System.Windows.Media.VisualBrush
+        $Rectangle = New-Object System.Windows.Media.RectangleGeometry
+        $Rectangle.Height = $Height
+        $Rectangle.Fill = $Fill
+       
+
+       return $Rectangle
+   }
+   
 
