@@ -3,11 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
-        Title="EXAMPLE" 
-        Width="auto" 
-        Height="auto"  
-		ResizeMode="NoResize"	
-		>
+        Title="TRAIN">
 
     <Window.Resources>
         <ResourceDictionary>
@@ -28,16 +24,36 @@
 
 		<StackPanel HorizontalAlignment="Center">
 
-            <DataGrid x:Name="trainGrid0" AutoGenerateColumns="False" Margin="0,0,0,0"
+
+ <!-- DATAGRID CONTENT -->       
+            <DataGrid x:Name="datagridTrain" AutoGenerateColumns="False" Margin="0,20,0,20"
                 GridLinesVisibility="All" HorizontalGridLinesBrush="#FFD4D4D4"  
-                VerticalGridLinesBrush="#FFD4D4D4"  CanUserAddRows="False">
-    
+                VerticalGridLinesBrush="#FFD4D4D4"  CanUserAddRows="False"
+                Width="auto" Height="200">
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Binding="{Binding ETAArrival}" Header="Arrival" IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Binding="{Binding Direction}" Header="Direction" IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Binding="{Binding ETAinMin}" Header="Remaining" IsReadOnly="True" Width="auto"/>
+                        <DataGridTextColumn Binding="{Binding From}" Header="Informations" IsReadOnly="True" Width="auto"/>
+                     
+                    </DataGrid.Columns>
+
             </DataGrid>
-
-
-            <Grid x:Name="trainGrid" Background="White">
-    
+            
+<!-- DYNAMIC CONTENT -->
+            <Grid x:Name="trainGrid1" Background="Yellow">
+                <StackPanel Width="400" Height="300" Orientation="vertical"  >
+                    <Grid Height="30" Width="200" Margin="0,2,0,2" Background="Green">
+                        <Label Content="TOTO1" Foreground="White"></Label>
+                    </Grid>
+                    <Grid Height="30" Width="200" Margin="0,2,0,2" Background="Green">
+                        <Label Content="TOTO2" Foreground="White"></Label>
+                    </Grid>
+                </StackPanel>
             </Grid>
+        
+ 
 
 		</StackPanel>		
 

@@ -1,7 +1,5 @@
 #########################################################################
 # Author:  Kevin RAHETILAHY                                             #
-# Version: ???                                                          #
-# Name: Capture Tool                                                    #
 #########################################################################
 
 # =======================================================================
@@ -10,7 +8,7 @@
 # SUMMARY: This document helps you to re-use directly some common node in
 # the XAML form without specifing it everytime. 
 # Make sure that names are different for each node of the same type 
-# you use to avoid conflict di=uring the Form generation 
+# you use to avoid conflict during the Control generation.
 # =======================================================================
 
 
