@@ -1,0 +1,12 @@
+#TYPE System.Management.Automation.PSCustomObject
+"ETADeparture","Direction","ETAArrival","ETAinMin","From","GareName"
+"31/03/2018 17:14:00","Boissy-St-L?ger (Boissy-Saint-L?ger)","31/03/2018 17:14:00","0:0:22","St-Germain-en-Laye vers Boissy-St-L?ger (RER A)","Ch?telet-les-Halles"
+"31/03/2018 17:14:00","Boissy-St-L?ger (Boissy-Saint-L?ger)","31/03/2018 17:12:00","0:-1:-37","St-Germain-en-Laye vers Boissy-St-L?ger (RER A)","Ch?telet-les-Halles"
+"31/03/2018 17:16:00","Melun (Melun)","31/03/2018 17:15:00","0:1:23","Goussainville vers Melun (RER D)","Ch?telet-les-Halles"
+"31/03/2018 17:19:00","Melun (Melun)","31/03/2018 17:18:00","0:4:23","Villiers-le-Bel-Gonesse vers Melun (RER D)","Ch?telet-les-Halles"
+"31/03/2018 17:17:00","Cergy-le-Haut (Cergy)","31/03/2018 17:16:00","0:2:23","Marne-la-Val-Chessy-RER vers Cergy-le-Haut (RER A)","Ch?telet-les-Halles"
+"31/03/2018 17:17:00","Robinson (Sceaux)","31/03/2018 17:17:00","0:3:22","A?rop-C-de-Gaulle-2-TGV vers Robinson (RER B)","Ch?telet-les-Halles"
+"31/03/2018 17:17:00","Mitry-Claye (Mitry-Mory)","31/03/2018 17:17:00","0:3:22","Robinson vers Mitry-Claye (RER B)","Ch?telet-les-Halles"
+"31/03/2018 17:19:00","Marne-la-Val-Chessy-RER (Chessy)","31/03/2018 17:18:00","0:4:23","Sartrouville vers Marne-la-Val-Chessy-RER (RER A)","Ch?telet-les-Halles"
+"31/03/2018 17:22:00","St-Germain-en-Laye (Saint-Germain-en-Laye)","31/03/2018 17:22:00","0:8:23","Boissy-St-L?ger vers St-Germain-en-Laye (RER A)","Ch?telet-les-Halles"
+"31/03/2018 17:23:00","A?rop-C-de-Gaulle-2-TGV (Tremblay-en-France)","31/03/2018 17:23:00","0:9:22","Massy-Palaiseau- vers A?rop-C-de-Gaulle-2-TGV (RER B)","Ch?telet-les-Halles"

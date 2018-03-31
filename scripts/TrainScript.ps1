@@ -1,6 +1,6 @@
 
-
-$Script:apikey = 'your api key here'
+# Get you key here : https://www.digital.sncf.com/startup/api/token-developpeur
+$Script:apikey = 'you api key here'
 
 Function Get-NextTrain
 {
